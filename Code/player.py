@@ -10,7 +10,7 @@ class Player(pygame.sprite.Sprite):
 
     
         self.direction = pygame.math.Vector2()
-        self.speed = 5
+        self.speed = 10
         
         self.obstacle_sprites = obstacle_sprites
 
