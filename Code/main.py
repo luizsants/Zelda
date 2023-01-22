@@ -11,13 +11,13 @@ class Game:
 		pygame.display.set_caption('Zelda')
 		self.clock = pygame.time.Clock()
 		self.level = Level()
-	
+		
 	def run(self):
-		while True:
+		while True: 
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
 					pygame.quit()
-					sys.exit()
+					sys.exit() 
 
 			self.screen.fill('black')
 			self.level.run()
