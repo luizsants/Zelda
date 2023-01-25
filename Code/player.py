@@ -160,6 +160,9 @@ class Player(Entity):
 		self.image = animation[int(self.frame_index)]
 		self.rect = self.image.get_rect(center = self.hitbox.center)
 
+		# flicker
+		
+
 	def get_full_weapon_damage(self):
 		base_damage = self.stats['attack']
 		weapon_damage = weapon_data[self.weapon]['damage']
