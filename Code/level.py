@@ -71,17 +71,13 @@ class Level:
 									self.create_attack,
 									self.destroy_attack,
 									self.create_magic)
-							else:
-								if col == '390': monster_name = 'bamboo'
-								elif col == '391': monster_name = 'spirit'
-								elif col == '392': monster_name ='raccoon'
-								else: monster_name = 'squid'
-								Enemy(
+							Enemy(
 									monster_name,
 									(x,y),
 									[self.visible_sprites,self.attackable_sprites],
-									self.obstacle_sprites, self.damage_player)
-
+									self.obstacle_sprites,
+									self.damage_player,
+									self.trigger_death_particles)
 	def create_attack(self):
 		
 		self.current_attack = Weapon(self.player,[self.visible_sprites,self.attack_sprites])
@@ -107,6 +103,7 @@ class Level:
 						else:
 							target_sprite.get_damage(self.player,attack_sprite.sprite_type)
 
+
 	def damage_player(self,amount, attack_type):
 		if self.player.vulnerable:
 			self.player.health -= amount
@@ -114,7 +111,6 @@ class Level:
 			self.player.hurt_time = pygame.time.get_ticks()
 
 			# spawn particles
-
 	def run(self):
 		# update and draw the game
 		self.visible_sprites.custom_draw(self.player)

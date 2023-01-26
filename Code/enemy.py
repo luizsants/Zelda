@@ -43,6 +43,11 @@ class Enemy(Entity):
 		self.hit_time = None
 		self.invicibility_duration = 300
 
+		# invencibility timer
+		self.vulnerable = True
+		self.hit_time = None
+		self.invicibility_duration = 300
+
 	def import_graphics(self,name):
 		self.animations = {'idle':[],'move':[],'attack':[]}
 		main_path = f'../graphics/monsters/{name}/'
